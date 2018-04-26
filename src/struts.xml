@@ -4,8 +4,18 @@
         "http://struts.apache.org/dtds/struts-2.5.dtd">
 <struts>
     <package name="default" namespace="/" extends="struts-default">
+    	<global-allowed-methods>regex:.*</global-allowed-methods>
     	<action name="hello">
     		<result name="success">/WEB-INF/jsp/hello.jsp</result>
+    	</action>
+    	
+    	<action name="hello2" class="com.java00123.action.HelloAction">
+    		<result name="success">/WEB-INF/jsp/hello2.jsp</result>
+    	</action>
+    	
+    	<!-- 通配符的使用 -->
+    	<action name="student_*" class="com.java00123.action.SutdentAction" method="student_{1}">
+    		<result name="success">/WEB-INF/jsp/student_{1}.jsp</result>
     	</action>
     </package>
 </struts> 
